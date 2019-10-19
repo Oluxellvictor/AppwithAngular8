@@ -133,12 +133,11 @@ namespace AngularApp_Auth
 
             app.UseCors("EnableCORS");
 
-           // app.UseCors(options => options.WithOrigins("https://localhost:5001"));
-
-
+        
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseAuthentication();
+           
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();

@@ -7,7 +7,6 @@ using AngularApp_Auth.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AngularApp_Auth.Controllers
 {
@@ -51,9 +50,9 @@ namespace AngularApp_Auth.Controllers
         }
 
         
-        [HttpPut("[action]")]
-        [HttpPost("[action]")]
-        [Authorize(Policy = "RequiredAdministratorRole")]
+        [HttpPut("[action]/{id}")]
+       
+       [Authorize(Policy = "RequiredAdministratorRole")]
         public async Task<IActionResult> UpdateProduct([FromRoute] int id, [FromBody] ProductModel formdata)
         {
             if (!ModelState.IsValid)
@@ -78,14 +77,14 @@ namespace AngularApp_Auth.Controllers
 
             await _db.SaveChangesAsync();
 
-            return Ok(new JsonResult("The Product with id" + id + "is Updated"));
+            return Ok(new JsonResult("The Product with id " + id + " is Updated"));
         }
 
 
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         [HttpPost("[action]")]
-        [Authorize(Policy = "RequiredAdministratorRole")]
+       [Authorize(Policy = "RequiredAdministratorRole")]
         public async Task<IActionResult> DeleteProduct([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -105,7 +104,7 @@ namespace AngularApp_Auth.Controllers
             await _db.SaveChangesAsync();
 
             //finally return to the client 
-            return Ok(new JsonResult("The Prodcuct with id" + id + "is Deleted"));
+            return Ok(new JsonResult("The Prodcuct with id " + id + " is Deleted"));
         }
     }
 }

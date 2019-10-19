@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AngularApp_Auth.Controllers
 {
@@ -83,7 +82,7 @@ namespace AngularApp_Auth.Controllers
                 {
                     //confirmation of email
                     var tokenHandler = new JwtSecurityTokenHandler();
-                    var tokenDescription = new SecurityTokenDescriptor
+                var tokenDescription = new SecurityTokenDescriptor
                     {
                         Subject = new ClaimsIdentity(new Claim[] {
                         new Claim(JwtRegisteredClaimNames.Sub, formdata.Username),
