@@ -1,8 +1,179 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css?family=Monserrat');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Monserrat', sans-serif;
 }
 
+/*Login Css*/
+.login-block{
+    float: left;
+    width: 100%;
+    padding: 50px;
+    background: #de6262;
+}
+
+.banner-sec{
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0 10px 10px 0;
+}
+
+.banner-sec img{
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.signLog{
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner{
+    border-radius: 0 10px 10px 0;
+    right: -15px;
+}
+.carousel-item{
+    background: #000;
+}
+.carousel-caption{
+    text-align: left;
+    left: 5%;
+}
+.login-sec{
+    padding: 50px 30px 0 50px;
+    position: relative;
+}
+
+.login-sec .copy-text{
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-sec .register-text{
+    position: absolute;
+    width: 100%;
+    bottom: 80px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-sec .register-text a{
+    color: #e36262;
+}
+.login-sec .register-text i{
+    color: #ff6ec4;
+}
+
+
+.login-sec .copy-text i {
+    color: #ff6ec4;
+  }
+
+
+
+  .login-sec .copy-text a {
+    color: #E36262;
+  }
+
+  .login-sec h2 {
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 30px;
+    color: #ff6ec4;
+  }
+
+    .login-sec h2:after {
+      content: " ";
+      width: 100px;
+      height: 5px;
+      background: #ff6ec4;
+      display: block;
+      margin-top: 20px;
+      border-radius: 3px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+.btn-login {
+  background: #ff6ec4;
+  color: #fff;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.banner-text {
+  width: 100%;
+  position: absolute;
+  bottom: 40px;
+  padding-left: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+  .banner-text h2 {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+    .banner-text h2:after {
+      content: " ";
+      width: 100%;
+      height: 5px;
+      background: #FFF;
+      display: block;
+      margin-top: 20px;
+      font-family: 'Montserrat', sans-serif;
+      border-radius: 3px;
+    }
+
+  .banner-text p {
+    color: #fff;
+  }
+
+/*Login CSS END*/
+
+/*Register CSS*/
+
+
+.register-block {
+  background: #DE6262; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #ff6ec4,#7873f5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #ff6ec4,#7873f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  float: left;
+  width: 100%;
+  padding: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.register-sec h2 {
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 30px;
+  color: #ff6ec4;
+}
+
+  .register-sec h2:after {
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #ff6ec4;
+    display: block;
+    margin-top: 20px;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+.errorMessage {
+  color: red;
+}

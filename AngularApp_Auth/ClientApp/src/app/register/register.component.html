@@ -1,1 +1,110 @@
-<p>register works!</p>
+<section class="register-block">
+    <div class="container signLog">
+      <div class="row">
+        <div class="col-md-4 register-sec">
+          <h2 class="text-center">Register</h2>
+          <form class="login-form"  [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="username" class="text-uppercase">Username</label>
+                <input id="username" formControlName="username" type="text" class="form-control" placeholder="" required autofocus>
+                <div *ngIf="username.touched && username.errors" class="errorMessage">
+                    <span *ngIf="username.hasError('required')">UserName is required.</span>
+                    <span *ngIf="username.hasError('maxlength')">Only 10 characters allowed for UserName.</span>
+                    <span *ngIf="username.hasError('minlength')">Atleast 5 characters needed for UserName.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="text-uppercase">Password</label>
+                <input id="password" formControlName="password" type="password" class="form-control" placeholder="" required>
+                <div *ngIf="password.touched && password.errors" class="errorMessage">
+                    <span *ngIf="password.hasError('required')">Password is required.</span>
+                    <span *ngIf="password.hasError('maxlength')">Only 10 characters allowed for password.</span>
+                    <span *ngIf="password.hasError('minlength')">Atleast 5 characters needed for password.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cpassword" class="text-uppercase">Confirm Password</label>
+                <input id="cpassword" formControlName="cpassword" type="password" class="form-control" placeholder="" required>
+                <div *ngIf="cpassword.touched && cpassword.errors" class="errorMessage">
+                    <span *ngIf="cpassword.hasError('required')">Confirm Password is required.</span>
+                    <span *ngIf="cpassword.hasError('mustMatch')">Password Must Match.</span>
+                </div>
+              </div>
+    
+              <div class="form-group">
+                <label for="email" class="text-uppercase">Email</label>
+                <input id="email" formControlName="email" type="text" class="form-control" placeholder="eg: johndoe@techhowdy.com">
+                <div *ngIf="email.touched && email.errors" class="errorMessage">
+                    <span *ngIf="email.hasError('required')">Email is required.</span>
+                    <span *ngIf="email.hasError('email')">Please provide valid email.</span>
+                </div>
+              </div>
+    
+              <div class="form-group">
+                <input id="register" type="submit" [disabled]="insertForm.invalid" class="btn btn-login btn-block" />
+              </div>
+          </form>
+  
+        </div>
+        <div class="col-md-8 banner-sec">
+  
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="/images/image1.jpg" alt="First slide">
+                <div class="after"></div>
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>JSON Web Token (JWT)</h2>
+                    <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="/images/image2.jpg" alt="First slide">
+                <div class="after"></div>
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>ASP.NET Core 2.2 Web API</h2>
+                    <p>JWTs can be encrypted to also provide secrecy between parties, we will focus on signed tokens.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="/images/image3.jpeg" alt="First slide">
+                <div class="after"></div>
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>ANGULAR 7</h2>
+                    <p>Signed tokens can verify the integrity of the claims contained within it, while encrypted tokens hide those claims from other parties. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <ng-template #template>
+      <div class="modal-header">
+          <h4 class="modal-title pull-left">JWT_Auth Registration</h4>
+          <button type="button" class="close pull-right" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="list-group-item active">{{modalMessage}}</p>
+          <ul class="list-group" *ngFor="let erro of errorList">
+              <li class="list-group-item">{{error}}</li>
+          </ul>
+      </div>
+  </ng-template>
+  
+  

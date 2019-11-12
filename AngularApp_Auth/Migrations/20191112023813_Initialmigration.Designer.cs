@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AngularApp_Auth.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191009230507_Initialmigration")]
+    [Migration("20191112023813_Initialmigration")]
     partial class Initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

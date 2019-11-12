@@ -1,32 +1,91 @@
+<!-- LOGIN SECTION -->
 <section class="login-block">
-    <!--ALERT WARNING START-->
-    <div class="text-center mb-3 alert alert-warning alert-dismissable" role="alert">
-        <button>Display Our Error Message</button>
+    <!-- ALERT  WARNING START -->
+    <div class="text-center mb-3 alert alert-warning alert-dismissible" *ngIf="invalidLogin"  role="alert">
+      <strong>{{ErrorMessage}}</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-    </div>
+    </div><!-- ALERT  WARNING END -->
 
-    <!--LOGIN CONTAINER-->
-    <div class="container signlog">
+    <!-- LOGIN CONTAINER START -->
+    <div class="container signLog">
         <div class="row">
+
+            <!-- LOGIN COLUMN START -->
             <div class="col-md-4 login-sec">
                 <h2 class="text-center">Login Now</h2>
-                <form class="login-form form" action="">
+                <!-- LOGIN FORM START -->
+                <form class="login-form form" [formGroup]="insertForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                        <label form="UserName" class="text-uppercase">Username</label>
+                        <label for="UserName" class="text-uppercase">Username</label>
                         <input formControlName="Username" type="text" class="form-control" placeholder="" required autofocus>
-
+                        <div *ngIf="Username.touched && Username.errors"
+                             class="errorMessage">
+                          <span *ngIf="Username.hasError('required')">Username is required.</span>
+                        </div>
                     </div>
                     <div class="form-group">
-                            <label form="Password" class="text-uppercase">Password</label>
-                            <input formControlName="Password" type="password" class="form-control" placeholder="" required autofocus>
-    
-                        </div>
+                        <label for="Password" class="text-uppercase">Password</label>
+                        <input formControlName="Password" type="password" class="form-control" placeholder="" required autofocus>
+                        <div *ngIf="Password.touched && Password.errors"
+                             class="errorMessage">
+                          <span *ngIf="Password.hasError('required')">Password is required.</span>
 
-                    <input type="submit" class="btn btn-login btn-block" value="Submit">
-                </form>
-            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-login btn-block" value="Submit" [disabled]="insertForm.invalid" />
+
+                </form><!-- LOGIN FORM END -->
+
+                <div class="register-text">Dont Have An Accont ? <i class="fa fa-user-plus"></i> <a href="#"> Sign Up</a></div>
+
+                <div class="copy-text">JWT Authentication <i class="fa fa-user-secret"></i> by <a href="http://techhowdy.com">Techhowdy.com</a></div>
+            </div> <!-- LOGIN SECTION END -->
+            <!-- CAROUSEL COLUMN START -->
+            <div class="col-md-8 banner-sec">
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="/images/image1.jpg" alt="First slide">
+                            <div class="after"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>JSON Web Token (JWT)</h2>
+                                    <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="/images/image2.jpg" alt="First slide">
+                            <div class="after"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>ASP.NET Core 2.2 Web API</h2>
+                                    <p>JWTs can be encrypted to also provide secrecy between parties, we will focus on signed tokens.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="/images/image3.jpeg" alt="First slide">
+                            <div class="after"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>ANGULAR 7</h2>
+                                    <p>Signed tokens can verify the integrity of the claims contained within it, while encrypted tokens hide those claims from other parties. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- CAROUSEL COLUMN START -->
         </div>
-    </div>
+    </div> <!-- LOGIN CONTAINER END -->
 </section>
